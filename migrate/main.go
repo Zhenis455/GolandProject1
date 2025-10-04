@@ -1,15 +1,16 @@
+package migrate
 
 import (
-"log"
+	"log"
 
-"github.com/Bekzhanizb/EDHW2/initializer"
-"github.com/Bekzhanizb/EDHW2/models"
+	"github.com/Zhenis455/Goland1/initializer"
+	"github.com/Zhenis455/Goland1/model"
 )
 
 func RunMigrations() {
-err := initializer.DB.AutoMigrate(&models.User{})
-if err != nil {
-log.Fatal("Migration failed:", err)
-}
-log.Println("Migrations applied")
+	err := initializer.DB.AutoMigrate(&model.User{})
+	if err != nil {
+		log.Fatal("Migration failed:", err)
+	}
+	log.Println("Migrations applied")
 }

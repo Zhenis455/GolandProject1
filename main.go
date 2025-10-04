@@ -1,21 +1,13 @@
-package GolandProject1
-
-import (
-	"GolandProject1/controller"
-	"GolandProject1/initializer"
-	"fmt"
-	"log"
-)
-
 package main
 
 import (
-"fmt"
-"log"
-"github.com/Zhenis455/Goland1/initializer"
-"github.com/Zhenis455/Goland1/models""
-"github.com/Zhenis455/Goland1/controller"
+	"fmt"
+	"log"
 
+	"github.com/Zhenis455/Goland1/controller"
+	"github.com/Zhenis455/Goland1/initializer"
+	"github.com/Zhenis455/Goland1/migrate"
+	"github.com/Zhenis455/Goland1/model"
 )
 
 func init() {
@@ -25,7 +17,7 @@ func init() {
 }
 
 func main() {
-	usersToCreate := []models.User{
+	usersToCreate := []model.User{
 		{Name: "Bekzhan", Age: 19},
 		{Name: "Aigerim", Age: 22},
 		{Name: "Dias", Age: 25},
