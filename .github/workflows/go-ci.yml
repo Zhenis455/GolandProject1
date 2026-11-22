@@ -1,0 +1,28 @@
+name: Go build and vet
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  go:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Go 1.22
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+          cache: true
+      - name: Compile packages and run tests
+        run: go test ./...
+      - name: Static analysis
+        run: go vet ./...
+      - name: Build console application
+        run: go build ./...
